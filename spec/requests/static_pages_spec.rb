@@ -6,25 +6,25 @@ describe "StaticPages" do
 
 
     it "should have the h1 'Sample App'" do 
-      visit '/static_pages/home'
-      page.should have_selector('h1', :text => 'Sample App')
+      visit root_path
+      page.should have_selector('h1', text:'Sample App')
     end
 
     it "should have the base title" do 
-      visit '/static_pages/home'
+      visit root_path
       page.should have_selector('title', 
-                                :text => 'Ruby on Rails Tutorial Sample App')
+                                text: 'Ruby on Rails Tutorial Sample App')
     end
     
     it "should not have a custom page title" do
-      visit '/static_pages/home'
+      visit root_path
       page.should_not have_selector('title', :text => '| Home')
     end
   end
 
   describe "Help page" do 
     it "should have the content 'Help'" do
-      visit '/static_pages/help'
+      visit help_path
       page.should have_selector('title', 
                                :text => "Ruby on Rails Tutorial Sample App | Help")
     end
@@ -33,15 +33,29 @@ describe "StaticPages" do
   describe "About page" do
 
     it "should have the h1 'About Us'" do
-      visit '/static_pages/about'
+      visit about_path
       page.should have_selector('h1', :text => 'About Us')
     end
 
 
     it "should have the content 'About Us'" do
-      visit '/static_pages/about'
+      visit about_path
       page.should have_selector('title',
                                :text => 'Ruby on Rails Tutorial Sample App | About Us')
+    end
+  end
+
+  describe "Contract page" do 
+
+    it "should have the h1 'Contract'" do 
+      visit contract_path
+      page.should have_selector('h1', text: 'Contract')
+    end
+
+    it "should have the title 'Contract'" do 
+      visit contract_path
+      page.should have_selector('title', 
+                               text: 'Ruby on Rails Tutorial Sample App | Contract')
     end
   end
 end
