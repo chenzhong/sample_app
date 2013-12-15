@@ -2,7 +2,7 @@ source 'http://ruby.taobao.org'
 
 gem 'rails', '3.2.3'
 gem 'bootstrap-sass', '2.0.4'
-
+gem 'bcrypt-ruby', '3.0.1'
 
 gem 'sqlite3'
 
@@ -18,6 +18,7 @@ gem 'jquery-rails'
 group :development, :test do 
   gem 'sqlite3'
   gem 'rspec-rails', '2.11.0'
+  gem 'annotate', '2.5.0'
 end
 
 group :test do
