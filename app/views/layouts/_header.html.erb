@@ -21,8 +21,9 @@
                     </li>
                   </ul>
                 </li>
+              <% else %>
+                <li><%= link_to "Sign in", signin_path %></li>
               <% end %>
-              <li><%= link_to "Sign in", signin_path %></li>
             </ul> 
           </nav>
       </div>
