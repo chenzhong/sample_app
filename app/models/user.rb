@@ -25,9 +25,17 @@ class User < ActiveRecord::Base
                     format: { with: VALID_EMAIL_REGEX }, 
                     uniqueness: { case_sensitive: false }
 
+
+
+  has_many :microposts, dependent: :destroy
+
   before_save { |user| user.email = email.downcase }
   
   before_save :create_remember_token
+
+  def feed
+    Micropost.where("user_id = ? ", id)
+  end
 
   private 
     
